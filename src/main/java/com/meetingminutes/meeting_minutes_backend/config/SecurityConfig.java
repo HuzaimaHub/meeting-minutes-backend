@@ -38,7 +38,7 @@ public class SecurityConfig {
             .exceptionHandling(e -> e.authenticationEntryPoint(
                     new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)))
             .authorizeHttpRequests(a -> a
-                    .requestMatchers("/api/auth/login").permitAll()
+                    .requestMatchers("/api/auth/**").permitAll()
                     .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                        .requestMatchers("/error").permitAll()
                        .requestMatchers(HttpMethod.GET, "/api/public/**").permitAll()
